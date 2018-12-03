@@ -26,7 +26,7 @@ $storagePHP->printAll();
 
 
 
-$storageJSON = new JsonStorage();
+$storageJSON = new JsonStorage("/data/data.json");
 $storageJSON->set("id","25");
 $storageJSON->set("phone","+380 000 00 00");
 $storageJSON->set("name","Oleksandr");
@@ -37,7 +37,7 @@ $storageJSON->remove("id");
 
 
 
-$storageYAML = new YamlStorage();
+$storageYAML = new YamlStorage("/data/data.yaml");
 $storageYAML->set("id","25");
 $storageYAML->set("phone","+380 000 00 00");
 $storageYAML->set("name","Oleksandr");

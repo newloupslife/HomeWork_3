@@ -3,7 +3,7 @@ require_once __DIR__ . '/KeyValueStoreInterface.php';
 
 abstract class KeyValueStore implements KeyValueStoreInterface
 {
-    public $array=[];
+    protected $array=[];
 
     public function set($key, $value)
     {
@@ -13,7 +13,9 @@ abstract class KeyValueStore implements KeyValueStoreInterface
     public function get($key, $default = null)
     {
         if (array_key_exists($key,$this->array) && $this->array[$key] != '')
+        {
             return $this->array[$key];
+        }
 
         return $default;
     }
@@ -24,15 +26,20 @@ abstract class KeyValueStore implements KeyValueStoreInterface
         {
             return true;
         }
+
         return false;
     }
 
     public function remove($key)
     {
         if (array_key_exists($key,$this->array))
+        {
             unset($this->array[$key]);
+        }
         else
+        {
             echo "Value by this key: $key 'not' exist";
+        }
     }
 
     public function clear()
